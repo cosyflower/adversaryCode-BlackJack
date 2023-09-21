@@ -3,8 +3,9 @@ package blackjack;
 import blackjack.model.strategy.DealerStandard;
 
 public class Dealer extends Participant {
-    public Dealer() {
+    public Dealer(int inputBattingMoney) {
         super();
         this.standardStrategy = new DealerStandard();
+        this.battingMoney = inputBattingMoney;
     }
 }

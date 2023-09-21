@@ -15,6 +15,10 @@ public class Card {
         return cardNumber.getCardValue();
     }
 
+    public CardNumber getCardNumber() {
+        return cardNumber;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
