@@ -16,7 +16,7 @@ public class PlayerTest {
     @BeforeEach
     void setUp() {
         player = new Player("pobi", 20000);
-        dealer = new Dealer(10000);
+        dealer = new Dealer();
     }
 
     @Test

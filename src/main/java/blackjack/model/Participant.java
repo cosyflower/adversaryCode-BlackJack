@@ -1,6 +1,7 @@
 package blackjack.model;
 
 import blackjack.model.strategy.StandardStrategy;
+import blackjack.utils.RandomCardGenerator;
 
 public class Participant {
     public static final int BLACKJACK = 21;
@@ -35,5 +36,12 @@ public class Participant {
 
     public Boolean isBlackJack(int cardSum) {
         return cardSum == BLACKJACK;
+    }
+
+    public void start() {
+        startWithTwoCards(
+                new Card(RandomCardGenerator.generateRandomNumber(), RandomCardGenerator.generateRandomShape()),
+                new Card(RandomCardGenerator.generateRandomNumber(), RandomCardGenerator.generateRandomShape())
+        );
     }
 }
