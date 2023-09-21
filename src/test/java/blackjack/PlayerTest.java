@@ -83,5 +83,25 @@ public class PlayerTest {
         Assertions.assertThat(isBlackjackDealer).isEqualTo(true);
     }
 
+    @Test
+    void check_twoCardsSum_And_totalSum() {
+        player.startWithTwoCards(
+                new Card("JACK", "하트"), // 10
+                new Card("A", "클로버")); // 1 or 11
 
+        dealer.startWithTwoCards(
+                new Card("A", "하트"), // 2
+                new Card("SIX", "클로버")); // 6
+
+        int twoCards = player.twoCardsScore();
+        int dealerTwoCards = dealer.twoCardsScore();
+
+        Assertions.assertThat(twoCards).isEqualTo(21);
+        Assertions.assertThat(dealerTwoCards).isEqualTo(7);
+
+        dealer.getOneMoreCard(new Card("THREE", "다이아몬드"));
+        int dealerTotalScore = dealer.totalScore();
+        Assertions.assertThat(dealerTotalScore).isEqualTo(20);
+
+    }
 }
