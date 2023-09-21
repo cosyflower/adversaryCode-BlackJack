@@ -10,6 +10,10 @@ public class Participant {
     protected StandardStrategy standardStrategy;
     protected int battingMoney;
 
+    public int getBattingMoney() {
+        return battingMoney;
+    }
+
     public Participant() {
         receivedCards = new ReceivedCards();
     }
@@ -44,4 +48,14 @@ public class Participant {
                 new Card(RandomCardGenerator.generateRandomNumber(), RandomCardGenerator.generateRandomShape())
         );
     }
+
+    public boolean hasBlackJack() {
+        return twoCardsScore() == BLACKJACK;
+    }
+
+    public void getNothing() {
+        battingMoney = 0;
+    }
+
+
 }
