@@ -1,5 +1,8 @@
 package blackjack;
 
+import blackjack.model.Card;
+import blackjack.model.Dealer;
+import blackjack.model.Player;
 import blackjack.utils.RandomCardGenerator;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

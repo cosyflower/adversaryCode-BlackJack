@@ -1,5 +1,7 @@
 package blackjack;
 
+import blackjack.model.Card;
+import blackjack.model.CardNumber;
 import blackjack.utils.RandomCardGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

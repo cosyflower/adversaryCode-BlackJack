@@ -1,7 +1,22 @@
 package blackjack;
 
 public class GameController {
-    public static void startWithTwoCards() {
+    // <Participant, int>
+    public GameController() {
+        setUp();
+        playGame();
+        endGame();
+    }
+
+    private void endGame() {
+
+    }
+
+    private void playGame() {
+
+    }
+
+    private void setUp() {
 
     }
 }

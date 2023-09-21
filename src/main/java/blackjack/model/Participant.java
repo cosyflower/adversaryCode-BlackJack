@@ -1,4 +1,4 @@
-package blackjack;
+package blackjack.model;
 
 import blackjack.model.strategy.StandardStrategy;
 
