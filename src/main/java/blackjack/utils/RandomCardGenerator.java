@@ -1,5 +1,7 @@
 package blackjack.utils;
 
+import blackjack.model.Card;
+
 import java.util.Random;
 
 public class RandomCardGenerator {
@@ -27,6 +29,20 @@ public class RandomCardGenerator {
 
     public static String generateShape(String shapeTest) {
         return shapeTest;
+    }
+
+    public static Card generateRandomCard() {
+        return new Card(
+                RandomCardGenerator.generateRandomNumber(),
+                RandomCardGenerator.generateRandomShape()
+        );
+    }
+
+    public static Card generateTestCard(String number, String shape) {
+        return new Card(
+                RandomCardGenerator.generateNumber(number),
+                RandomCardGenerator.generateShape(shape)
+        );
     }
 
 }

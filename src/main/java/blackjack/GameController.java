@@ -73,14 +73,13 @@ public class GameController {
         // 카드를 배부합니다
         // 플레이어가 카드를 받을 수 있는지 확인합니다
         gamePlayers.getCards();
-
+        dealer.getCards();
         // 딜러가 카드를 받을 수 있는지 확인합니다
-
-
     }
 
     private void endGame() {
         // 승리자 확인
+
         // 베팅 금액 결산하기
 
     }

@@ -59,7 +59,7 @@ public class PlayerTest {
                 new Card("JACK", "하트"), // 10
                 new Card("AA", "클로버")); // 11
 
-        if (player.canGetMoreCard(player.twoCardsScore())) {
+        if (player.canGetMoreCard()) {
             player.getOneMoreCard(new Card(
                     RandomCardGenerator.generateNumber("NINE"),
                     RandomCardGenerator.generateShape("클로버")

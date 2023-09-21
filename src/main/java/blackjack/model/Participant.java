@@ -30,8 +30,8 @@ public class Participant {
         return receivedCards.totalCardsSum();
     }
 
-    public boolean canGetMoreCard(int cardSum) {
-        return standardStrategy.isMatchingStandard(cardSum);
+    public boolean canGetMoreCard() {
+        return !hasBlackJack() && standardStrategy.isMatchingStandard(totalScore());
     }
 
     public void getOneMoreCard(Card newCard) {
@@ -44,8 +44,8 @@ public class Participant {
 
     public void start() {
         startWithTwoCards(
-                new Card(RandomCardGenerator.generateRandomNumber(), RandomCardGenerator.generateRandomShape()),
-                new Card(RandomCardGenerator.generateRandomNumber(), RandomCardGenerator.generateRandomShape())
+                RandomCardGenerator.generateRandomCard(),
+                RandomCardGenerator.generateRandomCard()
         );
     }
 

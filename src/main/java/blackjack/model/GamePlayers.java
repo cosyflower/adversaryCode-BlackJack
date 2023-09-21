@@ -1,10 +1,9 @@
 package blackjack.model;
 
-import blackjack.utils.RandomCardGenerator;
+import blackjack.view.InputView;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class GamePlayers {
     private final List<Player> players;
@@ -38,7 +37,7 @@ public class GamePlayers {
 
     public void getCards() {
         players.stream()
-                .filter(player -> player.canGetMoreCard(player.totalScore()))
-                .forEach(player -> InputView.wantMoreCard()); // InputView 에서는 카드를 더 받겠습니까? 를 전달해야 한다
+                .filter(player -> player.canGetMoreCard())
+                .forEach(player -> InputView.wantMoreCard(player)); // InputView 에서는 카드를 더 받겠습니까? 를 전달해야 한다
     }
 }

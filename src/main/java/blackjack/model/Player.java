@@ -14,6 +14,10 @@ public class Player extends Participant {
         this.battingMoney = inputBattingMoney;
     }
 
+    public String getPlayerName() {
+        return playerName;
+    }
+
     public void getRaisedBattingMoney() {
         this.battingMoney *= BATTING_RATE;
     }

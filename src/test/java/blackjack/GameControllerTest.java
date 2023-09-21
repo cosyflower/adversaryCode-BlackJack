@@ -13,11 +13,14 @@ import java.util.List;
 
 public class GameControllerTest {
     private GamePlayers gamePlayers;
+    private Player pobi_Player;
+    private Player honux_Player;
+
     @BeforeEach
     void setUp() {
         List<Player> testPlayers = new ArrayList<>();
-        Player pobi_Player = new Player("pobi", 10000);
-        Player honux_Player = new Player("honux", 20000);
+        pobi_Player = new Player("pobi", 10000);
+        honux_Player = new Player("honux", 20000);
         
         pobi_Player.startWithTwoCards(
                 new Card(RandomCardGenerator.generateNumber("A"), 
@@ -46,5 +49,9 @@ public class GameControllerTest {
         System.out.println("gamePlayers.getBlackjackPlayer() = " + gamePlayers.getBlackjackPlayer());
     }
 
-
+    @Test
+    void can_Get_More_cards() {
+        Assertions.assertFalse(pobi_Player.canGetMoreCard());
+        Assertions.assertTrue(honux_Player.canGetMoreCard());
+    }
 }
