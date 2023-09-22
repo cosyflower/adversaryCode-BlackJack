@@ -1,11 +1,12 @@
+package ScannerV1;
+
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.util.Scanner;
 
 public class ScannerTest extends IOTest{
+    private Scanner scanner;
 
     void execute() {
         Scanner scanner = new Scanner(System.in);
