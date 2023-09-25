@@ -4,12 +4,19 @@ import blackjack.model.Card;
 import blackjack.model.GamePlayers;
 import blackjack.model.Player;
 import blackjack.utils.RandomCardGenerator;
+import blackjack.view.InputView;
+import blackjack.view.OutputView;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Stream;
 
 public class GameControllerTest {
     private GamePlayers gamePlayers;
@@ -25,7 +32,7 @@ public class GameControllerTest {
         pobi_Player.startWithTwoCards(
                 new Card(RandomCardGenerator.generateNumber("A"), 
                         RandomCardGenerator.generateShape("다이아몬드")),
-                new Card(RandomCardGenerator.generateNumber("JACK"),
+                new Card(RandomCardGenerator.generateNumber("TWO"),
                         RandomCardGenerator.generateShape("클로버"))
         );
 
@@ -49,9 +56,21 @@ public class GameControllerTest {
         System.out.println("gamePlayers.getBlackjackPlayer() = " + gamePlayers.getBlackjackPlayer());
     }
 
-    @Test
-    void can_Get_More_cards() {
-        Assertions.assertFalse(pobi_Player.canGetMoreCard());
-        Assertions.assertTrue(honux_Player.canGetMoreCard());
+    private static Stream<Arguments> generateYesOrNoAboutCards() {
+        return Stream.of(
+                Arguments.of("y\n","n"),
+                Arguments.of("n\n", "y")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("generateYesOrNoAboutCards")
+    void can_Get_More_cards_And_Print_Status(String firstAnswer, String secondAnswer) {
+        // 한 player에게 여러 번 한다
+        List<String> inputsFromConsole = Arrays.asList(firstAnswer, secondAnswer);
+        InputView.testMoreCard(pobi_Player, inputsFromConsole);
+
+        System.out.println("pobi_Player.totalScore() = " + pobi_Player.totalScore());
+        OutputView.printPlayerCardStatus(Arrays.asList(pobi_Player));
     }
 }

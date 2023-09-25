@@ -57,5 +57,7 @@ public class Participant {
         battingMoney = 0;
     }
 
-
+    public String getReceivedCards() {
+        return receivedCards.getCardDescription();
+    }
 }

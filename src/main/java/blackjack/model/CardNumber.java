@@ -10,7 +10,7 @@ public enum CardNumber {
     FOUR("FOUR",4), FIVE("FIVE",5), SIX("SIX",6),
     SEVEN("SEVEN",7), EIGHT("EIGHT",8), NINE("NINE",9),
     JACK("JACK", 10), QUEEN("QUEEN", 10),
-    KING("KING", 10), AA("AA", 11);
+    KING("KING", 10);
 
     private static final Map<String, CardNumber> CardNumberMap =
             Collections.unmodifiableMap(Stream.of(values())

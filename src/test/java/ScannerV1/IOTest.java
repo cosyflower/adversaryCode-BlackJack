@@ -1,12 +1,12 @@
 package ScannerV1;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
+import java.io.*;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public abstract class IOTest {
     private ByteArrayOutputStream outputStreamCaptor;
@@ -14,6 +14,14 @@ public abstract class IOTest {
 
     protected void systemIn(String input) {
         System.setIn(new ByteArrayInputStream(input.getBytes()));
+    }
+
+    protected void testSetIn(InputStream inputStream) {
+        System.setIn(inputStream);
+    }
+
+    protected InputStream generateTestInput(String inputTest) {
+        return new ByteArrayInputStream(inputTest.getBytes());
     }
 
     @BeforeEach
@@ -27,6 +35,13 @@ public abstract class IOTest {
     void printResult() {
         System.setOut(standardOut); // 표준 출력으로 다시 변경한 다음에 출력해야 한다
         System.out.println(getOutput());
+    }
+
+    public InputStream multipleInput(String aString, String bString) {
+        List<InputStream> inputStreams = Arrays.asList(
+                generateTestInput(aString),
+                generateTestInput(bString));
+        return new SequenceInputStream(Collections.enumeration(inputStreams));
     }
 
     protected String getOutput() {

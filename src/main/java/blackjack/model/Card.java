@@ -19,6 +19,14 @@ public class Card {
         return cardNumber;
     }
 
+    public int getCardValue() {
+        return cardNumber.getCardValue();
+    }
+
+    public String getShape() {
+        return shape;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -31,4 +39,7 @@ public class Card {
     public int hashCode() {
         return Objects.hash(cardNumber, shape);
     }
+
+
+
 }

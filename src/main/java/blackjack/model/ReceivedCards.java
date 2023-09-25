@@ -1,5 +1,7 @@
 package blackjack.model;
 
+import blackjack.utils.Util;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +10,15 @@ public class ReceivedCards {
     public static final int ACE_CAN_BE_ELEVEN = 10;
 
     private List<Card> cards = new ArrayList<>();
+
+    public String getCardDescription() {
+        StringBuilder cardDescriptionLine = new StringBuilder();
+        for (Card card : cards) {
+            Util.buildLineWithWhiteSpace(cardDescriptionLine, card.getCardValue(), card.getShape());
+            cardDescriptionLine.append(", ");
+        }
+        return cardDescriptionLine.toString().substring(0, cardDescriptionLine.length() - 2);
+    }
 
     public void addCard(Card newCard) {
         cards.add(newCard);

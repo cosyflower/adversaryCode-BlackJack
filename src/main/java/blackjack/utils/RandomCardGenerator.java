@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class RandomCardGenerator {
     public static final String[] numberRange = new String[] {"A", "TWO", "THREE", "FOUR", "FIVE",
-            "SIX", "SEVEN", "EIGHT", "NINE", "JACK", "QUEEN", "KING", "AA"};
+            "SIX", "SEVEN", "EIGHT", "NINE", "JACK", "QUEEN", "KING"};
     public static final String[] shapeRange = new String[] {"스페이드", "다이아몬드", "하트", "클로버"};
 
     public static Random random = new Random();
